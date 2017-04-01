@@ -41,4 +41,11 @@ public interface CmsWorkOrderBase {
 	Map<String,Map<String, CmsCI>> getServices(); 
 
 	void setServices(Map<String,Map<String, CmsCI>> services);
+
+	String getAction();
+	String getNsPath();
+	String getClassName();
+	long getCiId();
+	String getCiName();
+
 }

@@ -38,8 +38,8 @@ public class CmsWorkOrderSimple extends CmsDpmtRecord implements CmsWorkOrderSim
 	public CmsCISimple box;
 	public Map<String, List<CmsRfcCISimple>> payLoad;
 	public Map<String,Map<String, CmsCISimple>> services;
-	public Map<String,String> searchTags = new HashMap<String,String>();
-	public Map<String,String> additionalInfo = new HashMap<String,String>();
+	public Map<String,String> searchTags = new HashMap<>();
+	public Map<String,String> additionalInfo = new HashMap<>();
 	
 	
 	/**

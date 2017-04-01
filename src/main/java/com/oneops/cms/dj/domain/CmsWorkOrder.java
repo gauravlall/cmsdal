@@ -74,7 +74,10 @@ public class CmsWorkOrder extends CmsDpmtRecord implements CmsWorkOrderBase {
 	public void setServices(Map<String, Map<String, CmsCI>> services) {
 		this.services = services;
 	}
-	
+
+
+
+
 	/**
 	 * Gets the box.
 	 *
@@ -138,7 +141,7 @@ public class CmsWorkOrder extends CmsDpmtRecord implements CmsWorkOrderBase {
 	public void putPayLoadEntry(String key, List<CmsRfcCI> value) {
 		if (value != null) {
 			if (this.payLoad == null) {
-				this.payLoad = new HashMap<String, List<CmsRfcCI>>();
+				this.payLoad = new HashMap<>();
 			}
 			this.payLoad.put(key, value);
 		}
@@ -184,5 +187,30 @@ public class CmsWorkOrder extends CmsDpmtRecord implements CmsWorkOrderBase {
 
 	public void setAdditionalInfo(Map<String, String> additionalInfo) {
 		this.additionalInfo = additionalInfo;
+	}
+
+	@Override
+	public String getClassName() {
+		return getRfcCi().getCiClassName();
+	}
+
+	@Override
+	public long getCiId() {
+		return getRfcCi().getCiId();
+	}
+
+	@Override
+	public String getCiName() {
+		return getRfcCi().getCiName();
+	}
+
+	@Override
+	public String getAction() {
+		return null;
+	}
+
+	@Override
+	public String getNsPath() {
+		return getRfcCi().getNsPath();
 	}
 }

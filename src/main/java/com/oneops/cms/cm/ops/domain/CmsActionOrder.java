@@ -176,4 +176,30 @@ public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
 	public void setCi(CmsCI ci) {
 		this.ci = ci;
 	}
+
+
+	@Override
+	public String getClassName() {
+		return getCi().getCiClassName();
+	}
+
+	@Override
+	public long getCiId() {
+		return getCi().getCiId();
+	}
+
+	@Override
+	public String getCiName() {
+		return getCi().getCiName();
+	}
+
+	@Override
+	public String getAction() {
+		return getActionName();
+	}
+
+	@Override
+	public String getNsPath() {
+		return getCi().getNsPath();
+	}
 }
