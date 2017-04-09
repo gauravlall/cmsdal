@@ -19,7 +19,6 @@ package com.oneops.cms.cm.ops.domain;
 
 import com.oneops.cms.cm.domain.CmsCI;
 import com.oneops.cms.domain.CmsWorkOrderBase;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,8 +27,9 @@ import java.util.Map;
 /**
  * The Class CmsActionOrder.
  */
-public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
-	private static final long serialVersionUID = 1L;
+public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase<CmsCI> {
+
+  private static final long serialVersionUID = 1L;
 
 	private CmsCI ci;
 	private CmsCI cloud;
@@ -118,7 +118,21 @@ public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
 	public Map<String, List<CmsCI>> getPayLoad() {
 		return payLoad;
 	}
-	
+
+  @Override
+  public CmsCI getPayLoadEntryAt(String payloadKey, int indx) {
+    if (isPayLoadEntryPresent(payloadKey)) {
+      return getPayLoad().get(payloadKey).get(indx);
+    }
+
+    return null;
+  }
+
+  @Override
+  public List<CmsCI> getPayLoadEntry(String payloadKey) {
+    return getPayLoad().get(payloadKey);
+  }
+
 	/**
 	 * Sets the pay load.
 	 *
@@ -152,10 +166,10 @@ public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
 	public void addPayLoadEntry(String key, CmsCI value) {
 		if (value != null) {
 			if (this.payLoad == null) {
-				this.payLoad = new HashMap<String, List<CmsCI>>();
-				this.payLoad.put(key, new ArrayList<CmsCI>());
-			}
-			this.payLoad.get(key).add(value);
+        this.payLoad = new HashMap<>();
+        this.payLoad.put(key, new ArrayList<>());
+      }
+      this.payLoad.get(key).add(value);
 		}
 	}
 	
@@ -193,6 +207,11 @@ public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
 		return getCi().getCiName();
 	}
 
+  @Override
+  public long getDeploymentId() {
+    return getActionId();
+  }
+
 	@Override
 	public String getAction() {
 		return getActionName();
@@ -202,4 +221,6 @@ public class CmsActionOrder extends CmsOpsAction implements CmsWorkOrderBase {
 	public String getNsPath() {
 		return getCi().getNsPath();
 	}
+
+
 }

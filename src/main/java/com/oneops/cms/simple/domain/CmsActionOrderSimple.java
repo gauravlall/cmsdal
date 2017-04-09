@@ -19,7 +19,6 @@ package com.oneops.cms.simple.domain;
 
 import com.oneops.cms.cm.ops.domain.CmsOpsAction;
 import com.oneops.cms.domain.CmsWorkOrderSimpleBase;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -183,14 +182,14 @@ public class CmsActionOrderSimple extends CmsOpsAction implements CmsWorkOrderSi
 	 * Put pay load entry.
 	 *
 	 * @param key the key
-	 * @param value the value
+	 * @param entries the value
 	 */
-	public void putPayLoadEntry(String key, List<CmsCISimple> value) {
-		if (value != null && value.size()>0) {
+	public void putPayLoadEntry(String key, List<CmsCISimple> entries) {
+		if (entries != null && entries.size() > 0) {
 			if (this.payLoad == null) {
 				this.payLoad = new HashMap<>();
 			}
-			this.payLoad.put(key, value);
+			this.payLoad.put(key, entries);
 		}
 	}
 

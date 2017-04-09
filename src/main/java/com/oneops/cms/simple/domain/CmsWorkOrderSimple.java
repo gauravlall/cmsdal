@@ -20,7 +20,6 @@ package com.oneops.cms.simple.domain;
 
 import com.oneops.cms.dj.domain.CmsDpmtRecord;
 import com.oneops.cms.domain.CmsWorkOrderSimpleBase;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -257,10 +256,10 @@ public class CmsWorkOrderSimple extends CmsDpmtRecord implements CmsWorkOrderSim
 	}
 
 	@Override
-	public void putPayLoadEntry(String payloadEntry, List<CmsRfcCISimple> rfcCISimples) {
+	public void putPayLoadEntry(String payloadEntry, List<CmsRfcCISimple> entries) {
 		if (this.payLoad == null) {
 			this.payLoad = new HashMap<>();
 		}
-		this.payLoad.put(payloadEntry, rfcCISimples);
+		this.payLoad.put(payloadEntry, entries);
 	}
 }
