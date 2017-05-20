@@ -1915,7 +1915,7 @@ public class CmsCmProcessor {
 	 * @param nsPath nsPath of the relation
 	 * @return the count from ci relations group by ns
 	 */
-	public Map<Long, Long> getCounCIRelationsGroupByFromCiId(
+	public Map<Long, Long> getCountCIRelationsGroupByFromCiId(
 			String relationName, String shortRelName, String toClazzName, String nsPath) {
 			String nsLike = CmsUtil.likefyNsPath(nsPath);
 			return parseStatsQueryResultGroupByCiId(ciMapper.getCountCIRelationsByNSLikeGroupByFromCiId(relationName, shortRelName, toClazzName, nsPath, nsLike));
