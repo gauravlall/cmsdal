@@ -664,7 +664,6 @@ public class CmsRfcProcessor {
 			CmsRfcAttribute existingAttr = existingRfcCi.getAttribute(attr.getAttributeName());
 			attr.setRfcId(rfcCi.getRfcId());
 			if (existingAttr==null){
-				attr.setRfcAttributeId(djMapper.getNextDjId());
 				djMapper.insertRfcCIAttribute(attr);
 			} else if(!(djValidator.rfcAttrsEqual(attr, existingAttr))) {
 				djMapper.updateRfcCIAttribute(attr);
